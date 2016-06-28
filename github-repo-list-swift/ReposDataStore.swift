@@ -8,16 +8,16 @@
 
 import UIKit
 
-class FISReposDataStore: NSObject {
+class ReposDataStore: NSObject {
     
-    static let sharedInstance = FISReposDataStore()
+    static let sharedInstance = ReposDataStore()
     
-    var repositories:[FISGithubRepository] = []
+    var repositories:[GithubRepository] = []
     
     func getRepositoriesWithCompletion(completion: () -> ()) {
-        FISGithubAPIClient.getRepositoriesWithCompletion { (reposArray) in
+        GithubAPIClient.getRepositoriesWithCompletion { (reposArray) in
             for repoDictionary in reposArray {
-                let repository = FISGithubRepository(dictionary: repoDictionary as! NSDictionary)
+                let repository = GithubRepository(dictionary: repoDictionary as! NSDictionary)
                 self.repositories.append(repository)
                 if self.repositories.count > 0 {
                     completion()

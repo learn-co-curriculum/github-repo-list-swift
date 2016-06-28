@@ -8,9 +8,9 @@
 
 import UIKit
 
-class FISReposTableViewController: UITableViewController {
+class ReposTableViewController: UITableViewController {
     
-    let store = FISReposDataStore.sharedInstance
+    let store = ReposDataStore.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class FISReposTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("repoCell", forIndexPath: indexPath)
 
-        let repository:FISGithubRepository = self.store.repositories[indexPath.row]
+        let repository:GithubRepository = self.store.repositories[indexPath.row]
         cell.textLabel?.text = repository.fullName
 
         return cell

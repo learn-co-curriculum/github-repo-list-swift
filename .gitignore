@@ -24,5 +24,11 @@ build/
 *.dat
 *.dep
 
+# Swift Package Manager
+#
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Packages/
+.build/
+
 # Secrets
-FISSecrets.swift
+Secrets.swift

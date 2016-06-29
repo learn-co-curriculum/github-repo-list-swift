@@ -11,13 +11,15 @@ import UIKit
 class ReposDataStore: NSObject {
     
     static let sharedInstance = ReposDataStore()
+    private init() {}
     
     var repositories:[GithubRepository] = []
     
     func getRepositoriesWithCompletion(completion: () -> ()) {
         GithubAPIClient.getRepositoriesWithCompletion { (reposArray) in
-            for repoDictionary in reposArray {
-                let repository = GithubRepository(dictionary: repoDictionary as! NSDictionary)
+            for dictionary in reposArray {
+                guard let repoDictionary = dictionary as? NSDictionary else {print("Object in reposArray is of non-dictionary type"); return}
+                let repository = GithubRepository(dictionary: repoDictionary)
                 self.repositories.append(repository)
                 if self.repositories.count > 0 {
                     completion()

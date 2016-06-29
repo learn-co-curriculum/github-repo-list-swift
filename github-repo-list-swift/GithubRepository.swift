@@ -14,9 +14,19 @@ class GithubRepository: NSObject {
     var repositoryID:String
     
     init(dictionary: NSDictionary) {
-        fullName = dictionary["full_name"] as! String
-        htmlURL = NSURL(string: dictionary["html_url"] as! String)!
-        repositoryID = (dictionary["id"]?.stringValue)!
+        if let name = dictionary["full_name"] as? String {
+            fullName = name
+        }
+        else {fullName = ""}
+        
+        if let valueAsString = dictionary["html_url"] as? String, valueAsURL = NSURL(string: valueAsString) {
+            htmlURL = valueAsURL
+        }
+        else {htmlURL = NSURL()}
+        if let repoID = dictionary["id"]?.stringValue {
+            repositoryID = repoID
+        }
+        else {repositoryID = ""}
     }
     
 }

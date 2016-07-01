@@ -9,9 +9,9 @@
 import UIKit
 
 class GithubRepository: NSObject {
-    var fullName:String
-    var htmlURL:NSURL
-    var repositoryID:String
+    var fullName: String
+    var htmlURL: NSURL
+    var repositoryID: String
     
     init(dictionary: NSDictionary) {
         guard let
@@ -19,7 +19,7 @@ class GithubRepository: NSObject {
             valueAsString = dictionary["html_url"] as? String,
             valueAsURL = NSURL(string: valueAsString),
             repoID = dictionary["id"]?.stringValue
-            else {assertionFailure("Error creating instance of GithubRepository"); return}
+            else {fatalError("Error creating instance of GithubRepository")}
         
         fullName = name
         htmlURL = valueAsURL

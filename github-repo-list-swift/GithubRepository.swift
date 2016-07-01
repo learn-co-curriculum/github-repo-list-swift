@@ -14,19 +14,16 @@ class GithubRepository: NSObject {
     var repositoryID:String
     
     init(dictionary: NSDictionary) {
-        if let name = dictionary["full_name"] as? String {
-            fullName = name
-        }
-        else {fullName = ""}
+        guard let
+            name = dictionary["full_name"] as? String,
+            valueAsString = dictionary["html_url"] as? String,
+            valueAsURL = NSURL(string: valueAsString),
+            repoID = dictionary["id"]?.stringValue
+            else {assertionFailure("Error creating instance of GithubRepository"); return}
         
-        if let valueAsString = dictionary["html_url"] as? String, valueAsURL = NSURL(string: valueAsString) {
-            htmlURL = valueAsURL
-        }
-        else {htmlURL = NSURL()}
-        if let repoID = dictionary["id"]?.stringValue {
-            repositoryID = repoID
-        }
-        else {repositoryID = ""}
+        fullName = name
+        htmlURL = valueAsURL
+        repositoryID = repoID
     }
     
 }

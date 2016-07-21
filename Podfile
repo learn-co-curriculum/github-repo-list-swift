@@ -10,7 +10,7 @@ target 'github-repo-list-swift' do
   target 'github-repo-list-swiftTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'OHHTTPStubs'
+    pod 'Mockingjay'
     pod 'Quick'
     pod 'Nimble'
     pod 'KIF', '~> 3.0', :configurations => ['Debug']

@@ -6,8 +6,9 @@
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
 
-import Cocoa
+import Quick
+import Nimble
 
 class GithubAPIClientSpec: QuickSpec {
-
+    
 }

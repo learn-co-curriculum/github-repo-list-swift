@@ -168,7 +168,7 @@ The idea at a high level is this:
 
 ### The API Client
 
-  1. In the `GithubAPIClient` class, create a **class function** called `getRepositoriesWithCompletion(completion:)`. The job of this method is to fetch all the repositories from the Github API, and pass that array of dictionaries on to its completion block.
+  1. In the `GithubAPIClient` class, create a **class function** called `getRepositoriesWithCompletion(completion:)`. The job of this method is to fetch all the repositories from the Github API, and pass that array of dictionaries on to its completion closure.
       - This method should know the URL to hit for the API request, create the `NSURLSessionDataTask`, and kick it off.
       - In the completion closure for the data task, the method should deserialize the JSON data from the server.
       - But how does this method get those objects back to the person who called it? It should take *its own* closure, which accepts the array of dictionaries as a parameter. Check out [this helpful resource](https://www.weheartswift.com/closures/) for an explanation on how to include a closure as a parameter for a function. The closure should return nothing and take one argument, an array of dictionaries.
@@ -188,19 +188,19 @@ Even though the raw data from the API is in the form of arrays and dictionaries,
 The data store's job is to use the methods on the API client, but take it one step further. It should turn the dictionaries from the API client's callback and turn them into actual instances of `GithubRepository`.
 
   1. Add a function to `ReposDataStore` called `getRepositoriesWithCompletion(completion:)` that uses the function of the same name on `GithubAPIClient`.
-    - The completion block to the API client function should use the `init(dictionary:)` method on `GithubRepository` to turn the dictionaries into real objects.
+    - The completion closure to the API client function should use the `init(dictionary:)` method on `GithubRepository` to turn the dictionaries into real objects.
     - That array of repository objects should be assigned to the `repositories` property on the data store.
-    - Now we're in the same boat as in the API client, where we have some result that we got asynchronously and need to inform our caller that we're done. This means the `getRepositoriesWithCompletion(completion:)` needs **its** own completion block. Just make this one take no arguments and return nothing (so its type will be `() -> ()`).
+    - Now we're in the same boat as in the API client, where we have some result that we got asynchronously and need to inform our caller that we're done. This means the `getRepositoriesWithCompletion(completion:)` needs **its** own completion closure. Just make this one take no arguments and return nothing (so its type will be `() -> ()`).
 
 ### All together now...
 
-  1. In the `viewDidLoad` of your `ReposTableViewController`, retreive the repos using the method on the `GithubDataStore` and display them in the table view!
-    - Due to the way the UI interacts with threading in iOS, you may see nothing on screen until you try to scroll in the tableview. Ruh roh! We'll talk about threading in more detail soon, but in order to interact with the UI from within an `NSURLSession` completion block, we need to hop back to the main thread. You can do this like so:
+  1. In the `viewDidLoad` of your `ReposTableViewController`, retrieve the repos using the method on the `GithubDataStore` and display them in the table view!
+    - Due to the way the UI interacts with threading in iOS, you may see nothing on screen until you try to scroll in the tableview. We'll talk about threading in more detail soon, but in order to interact with the UI from within an `NSURLSession` completion closure, we need to hop back to the main thread. You can do this like so:
     
     ```swift
-    NSOperationQueue.mainQueue.addOperationWithBlock({
+    dispatch_async(dispatch_get_main_queue()) {
         // your code that touches the UI here, like, maybe:
         self.tableView.reloadData()
-    })
+    }
     ```
 

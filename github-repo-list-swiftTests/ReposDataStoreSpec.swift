@@ -8,7 +8,14 @@
 
 import Quick
 import Nimble
+import Mockingjay
+
+@testable import github_repo_list_swift
 
 class ReposDataStore: QuickSpec {
 
+    override func spec() {
+        
+    }
+    
 }

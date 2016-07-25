@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B5C58D31D41860100273743 /* repositories.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C58D21D41860100273743 /* repositories.json */; };
 		2B81D8F31D4142EB00BB3EDD /* GithubAPIClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81D8F01D4142EB00BB3EDD /* GithubAPIClientSpec.swift */; };
 		2B81D8F41D4142EB00BB3EDD /* GithubRepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81D8F11D4142EB00BB3EDD /* GithubRepositorySpec.swift */; };
 		2B81D8F51D4142EB00BB3EDD /* ReposDataStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81D8F21D4142EB00BB3EDD /* ReposDataStoreSpec.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B5C58D21D41860100273743 /* repositories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = repositories.json; sourceTree = "<group>"; };
 		2B81D8F01D4142EB00BB3EDD /* GithubAPIClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAPIClientSpec.swift; sourceTree = "<group>"; };
 		2B81D8F11D4142EB00BB3EDD /* GithubRepositorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepositorySpec.swift; sourceTree = "<group>"; };
 		2B81D8F21D4142EB00BB3EDD /* ReposDataStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposDataStoreSpec.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		2B98D8711D22B6AD00905AE2 /* github-repo-list-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				2B5C58D21D41860100273743 /* repositories.json */,
 				2B81D8F01D4142EB00BB3EDD /* GithubAPIClientSpec.swift */,
 				2B81D8F11D4142EB00BB3EDD /* GithubRepositorySpec.swift */,
 				2B81D8F21D4142EB00BB3EDD /* ReposDataStoreSpec.swift */,
@@ -311,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5C58D31D41860100273743 /* repositories.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

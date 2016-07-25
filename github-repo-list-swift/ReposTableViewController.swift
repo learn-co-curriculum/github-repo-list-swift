@@ -14,6 +14,8 @@ class ReposTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.accessibilityLabel = "tableView"
 
         store.getRepositoriesWithCompletion {
             NSOperationQueue.mainQueue().addOperationWithBlock({ 

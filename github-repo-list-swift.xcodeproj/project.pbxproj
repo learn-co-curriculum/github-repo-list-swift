@@ -12,6 +12,7 @@
 		2B81D8F41D4142EB00BB3EDD /* GithubRepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81D8F11D4142EB00BB3EDD /* GithubRepositorySpec.swift */; };
 		2B81D8F51D4142EB00BB3EDD /* ReposDataStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81D8F21D4142EB00BB3EDD /* ReposDataStoreSpec.swift */; };
 		2B81D8F71D4142FC00BB3EDD /* ReposTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81D8F61D4142FC00BB3EDD /* ReposTableViewControllerSpec.swift */; };
+		2B95E5171D47B21600A3CE03 /* repositories.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B95E5161D47B21600A3CE03 /* repositories.json */; };
 		2B98D85E1D22B6AD00905AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B98D85D1D22B6AD00905AE2 /* AppDelegate.swift */; };
 		2B98D8631D22B6AD00905AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B98D8611D22B6AD00905AE2 /* Main.storyboard */; };
 		2B98D8651D22B6AD00905AE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B98D8641D22B6AD00905AE2 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		2B81D8F11D4142EB00BB3EDD /* GithubRepositorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepositorySpec.swift; sourceTree = "<group>"; };
 		2B81D8F21D4142EB00BB3EDD /* ReposDataStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposDataStoreSpec.swift; sourceTree = "<group>"; };
 		2B81D8F61D4142FC00BB3EDD /* ReposTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposTableViewControllerSpec.swift; sourceTree = "<group>"; };
+		2B95E5161D47B21600A3CE03 /* repositories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = repositories.json; path = "github-repo-list-swiftTests/repositories.json"; sourceTree = "<group>"; };
 		2B98D85A1D22B6AD00905AE2 /* github-repo-list-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "github-repo-list-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B98D85D1D22B6AD00905AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B98D8621D22B6AD00905AE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		2B98D85C1D22B6AD00905AE2 /* github-repo-list-swift */ = {
 			isa = PBXGroup;
 			children = (
+				2B95E5161D47B21600A3CE03 /* repositories.json */,
 				2B98D85D1D22B6AD00905AE2 /* AppDelegate.swift */,
 				2B98D88D1D22E62200905AE2 /* GithubAPIClient.swift */,
 				2B98D88F1D22E63800905AE2 /* GithubRepository.swift */,
@@ -305,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B98D8681D22B6AD00905AE2 /* LaunchScreen.storyboard in Resources */,
+				2B95E5171D47B21600A3CE03 /* repositories.json in Resources */,
 				2B98D8651D22B6AD00905AE2 /* Assets.xcassets in Resources */,
 				2B98D8631D22B6AD00905AE2 /* Main.storyboard in Resources */,
 			);

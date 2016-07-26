@@ -23,8 +23,8 @@ class ReposTableViewControllerSpec: QuickSpec {
             it("should have 1 section") {
                 expect(tableView.numberOfSections).to(equal(1))
             }
-            it("should have 2 cells") {
-                expect(tableView.numberOfRowsInSection(0)).to(equal(2))
+            it("should have 100 cells") {
+                expect(tableView.numberOfRowsInSection(0)).to(equal(100))
             }
         }
         describe("TableView Cells") {

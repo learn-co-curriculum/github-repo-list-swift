@@ -2,15 +2,14 @@
 # platform :ios, '9.0'
 
 target 'github-repo-list-swift' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-
+  pod 'OHHTTPStubs'
   # Pods for github-repo-list-swift
 
   target 'github-repo-list-swiftTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Mockingjay'
+    pod 'OHHTTPStubs'
     pod 'Quick'
     pod 'Nimble'
     pod 'KIF', '~> 3.0', :configurations => ['Debug']

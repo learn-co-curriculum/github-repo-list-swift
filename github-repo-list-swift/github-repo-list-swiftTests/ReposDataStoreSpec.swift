@@ -29,7 +29,6 @@ class ReposDataStoreSpec: QuickSpec {
             it("should get the correct repo dictionaries and create repository objects from them") {
                 
                 let store = ReposDataStore.sharedInstance
-                
                 waitUntil(action: { (done) in
                     store.getRepositoriesWithCompletion {
                         expect(store.repositories.count).to(equal(2))

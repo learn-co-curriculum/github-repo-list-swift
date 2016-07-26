@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OHHTTPStubs
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +17,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if isRunningTests() {
+            OHHTTPStubs.stubRequestsPassingTest({ (request) -> Bool in
+                
+                return(request.URL?.host == "api.github.com" && request.URL?.path == "/repositories")
+                
+            }) { (request) -> OHHTTPStubsResponse in
+                let response = OHHTTPStubsResponse(fileAtPath: OHPathForFileInBundle("repositories.json", NSBundle(forClass: self.dynamicType))!, statusCode: 200, headers: ["Content-Type": "application/json"])
+                return response
+            }
+        }
         return true
     }
+    
+    
+    
+    func isRunningTests() -> Bool {
+        let env = NSProcessInfo.processInfo().environment
+        if let injectBundle = env["XCTestConfigurationFilePath"] {
+            return NSString(string: injectBundle).pathExtension == "xctestconfiguration"
+        }
+        return false
+    }
+    
+    
+    
+    
+    
+    
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

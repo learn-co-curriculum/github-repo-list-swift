@@ -154,7 +154,7 @@ https://api.github.com/repositories?client_id=YOUR_KEY&client_secret=YOUR_SECRET
 
 As you can see we have quite a lot of data on each repo. Take note of the structure of the data: it's an array of dictionaries, with each dictionary representing a single repository.
 
-Before you get started, play around with the URL in the view controller. Try fetching it using `NSURLSession` and friends. Once you have the data coming back from Github's server, follow the instructions below to complete the application.
+Before you get started, play around with the URL. Try to see what you get back from Postman and try fetching it using `NSURLSession` and friends. Once you have the data coming back from Github's server, follow the instructions below to complete the application.
 
 ## Instructions
 
@@ -168,10 +168,10 @@ The idea at a high level is this:
 
 ### The API Client
 
-  1. In the `GithubAPIClient` class, create a **class function** called `getRepositoriesWithCompletion(completion:)`. The job of this method is to fetch all the repositories from the Github API, and pass that array of dictionaries on to its completion closure.
+  1. In the `GithubAPIClient` class, create a **class function** called `getRepositoriesWithCompletion(completion:)`. The job of this function is to fetch all the repositories from the Github API, and pass that array of dictionaries on to its completion closure.
       - This method should know the URL to hit for the API request, create the `NSURLSessionDataTask`, and kick it off.
       - In the completion closure for the data task, the method should deserialize the JSON data from the server.
-      - But how does this method get those objects back to the person who called it? It should take *its own* closure, which accepts the array of dictionaries as a parameter. Check out [this helpful resource](https://www.weheartswift.com/closures/) for an explanation on how to include a closure as a parameter for a function. The closure should return nothing and take one argument, an array of dictionaries.
+      - But how does this method get those objects back to the person who called it? It should take *its own* closure as an argument, which accepts the array of dictionaries as a parameter and returns nothing. Check out [this helpful resource](https://www.weheartswift.com/closures/) for an explanation on how to include a closure as a parameter for a function. The closure should return nothing and take one argument, an array of dictionaries.
 
 ### The Model
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GithubRepository: NSObject {
+class GithubRepository {
     var fullName: String
     var htmlURL: NSURL
     var repositoryID: String

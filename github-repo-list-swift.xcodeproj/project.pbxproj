@@ -144,7 +144,6 @@
 		2B98D85C1D22B6AD00905AE2 /* github-repo-list-swift */ = {
 			isa = PBXGroup;
 			children = (
-				2B95E5161D47B21600A3CE03 /* repositories.json */,
 				2B98D85D1D22B6AD00905AE2 /* AppDelegate.swift */,
 				2B98D88D1D22E62200905AE2 /* GithubAPIClient.swift */,
 				2B98D88F1D22E63800905AE2 /* GithubRepository.swift */,
@@ -155,6 +154,7 @@
 				2B98D8641D22B6AD00905AE2 /* Assets.xcassets */,
 				2B98D8661D22B6AD00905AE2 /* LaunchScreen.storyboard */,
 				2B98D8691D22B6AD00905AE2 /* Info.plist */,
+				2B95E5161D47B21600A3CE03 /* repositories.json */,
 			);
 			path = "github-repo-list-swift";
 			sourceTree = "<group>";

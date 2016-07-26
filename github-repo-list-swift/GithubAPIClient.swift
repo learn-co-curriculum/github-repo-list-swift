@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GithubAPIClient: NSObject {
+class GithubAPIClient {
         
     class func getRepositoriesWithCompletion(completion: (NSArray) -> ()) {
         let urlString = "\(githubAPIURL)/repositories?client_id=\(githubClientID)&client_secret=\(githubClientSecret)"

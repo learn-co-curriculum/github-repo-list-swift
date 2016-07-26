@@ -27,7 +27,7 @@ class GithubAPIClientSpec: QuickSpec {
             return(request.URL?.host == "api.github.com" && request.URL?.path == "/repositories")
             
         }) { (request) -> OHHTTPStubsResponse in
-            return OHHTTPStubsResponse(fileAtPath: OHPathForFileInBundle("repositories.json", NSBundle(forClass: self.dynamicType))!, statusCode: 200, headers: nil)
+            return OHHTTPStubsResponse(fileAtPath: OHPathForFileInBundle("repositories.json", NSBundle(forClass: self.dynamicType))!, statusCode: 200, headers: ["Content-Type" : "application/jason"])
         }
         
         

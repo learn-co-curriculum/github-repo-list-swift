@@ -1,5 +1,5 @@
 //
-//  FISGithubRepository.swift
+//  GithubRepository.swift
 //  github-repo-list-swift
 //
 //  Created by Haaris Muneer on 6/28/16.

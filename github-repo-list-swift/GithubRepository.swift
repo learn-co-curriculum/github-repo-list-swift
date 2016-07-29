@@ -13,7 +13,7 @@ class GithubRepository {
     var htmlURL: NSURL
     var repositoryID: String
     
-    init(dictionary: NSDictionary) {
+    init(dictionary: [String:AnyObject]) {
         guard let
             name = dictionary["full_name"] as? String,
             valueAsString = dictionary["html_url"] as? String,

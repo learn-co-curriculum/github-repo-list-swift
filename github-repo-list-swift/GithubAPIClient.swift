@@ -10,7 +10,7 @@ import UIKit
 
 class GithubAPIClient {
         
-    class func getRepositoriesWithCompletion(completion: Array<[String:AnyObject]> -> ()) {
+    class func getRepositoriesWithCompletion(completion: [[String:AnyObject]] -> ()) {
         let urlString = "\(githubAPIURL)/repositories?client_id=\(githubClientID)&client_secret=\(githubClientSecret)"
         let url = NSURL(string: urlString)
         let session = NSURLSession.sharedSession()
@@ -18,7 +18,7 @@ class GithubAPIClient {
         let task = session.dataTaskWithURL(potentialURL) { (data, response, error) in
             guard let data = data else { assertionFailure("Unable to get data \(error?.localizedDescription)"); return }
             
-            if let responseArray = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? Array<[String:AnyObject]> {
+            if let responseArray = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? [[String:AnyObject]] {
                 if let responseArray = responseArray {
                     completion(responseArray)
                 }

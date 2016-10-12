@@ -8,7 +8,7 @@ The API for this particular task is actually pretty straightforward.
 
 First you need to get a client id and client secret, by creating an app in your Github preferences. That may sound intimidating, but ultimately it's just a bit of bookkeeping. You can make one of those [here](https://github.com/settings/applications/new). Don't worry about the details too much -- it's just a formality. Once you do that, you'll have a client ID and secret which you can use in the URL for API requests. You can read the details on specifying those keys in Github's general API documentation [here](https://developer.github.com/v3/versions/).
 
-Your client secret and ID should be kept private - we don't want other people to be able to use them! If you just put them directly in the URL you use for your API call, they'll be pushed onto Github and other people will be able to see them. To step around this, you can  create a file for your secrets that won't be tracked by Git. Instead of choosing 'Cocoa Touch Class' on the new file window, just create a Swift file called `Secrets`. Next, create constants for both your client ID and secret in `Secrets.swift`. You'll then be able to reference and use those constants in your URL when you write the function to talk to the API later on in the lab. Finally, open the `.gitignore` file from the root directory of your project, add `Secrets.swift` at the end of the file, then save and close it. Your client ID and secret will now actually be secret!
+Your client secret and ID should be kept private - we don't want other people to be able to use them! If you just put them directly in the URL you use for your API call, they'll be pushed onto Github and other people will be able to see them. To step around this, you can  create a file for your secrets that won't be tracked by Git. Instead of choosing 'Cocoa Touch Class' on the new file window, just create an empty Swift file called `Secrets`. Next, create constants for both your client ID and secret in `Secrets.swift`. You'll then be able to reference and use those constants in your URL when you write the function to talk to the API later on in the lab. Finally, open the `.gitignore` file from the root directory of your project, add `Secrets.swift` at the end of the file, then save and close it. Your client ID and secret will now actually be secret!
 
 With your client ID and secret in hand, you can construct the URL for the list of all repositories:
 
@@ -154,7 +154,7 @@ https://api.github.com/repositories?client_id=YOUR_KEY&client_secret=YOUR_SECRET
 
 As you can see we have quite a lot of data on each repo. Take note of the structure of the data: it's an array of dictionaries, with each dictionary representing a single repository.
 
-Before you get started, play around with the URL. Try to see what you get back from Postman and try fetching it using `NSURLSession` and friends. Once you have the data coming back from Github's server, follow the instructions below to complete the application.
+Before you get started, play around with the URL. Try to see what you get back from Postman and try fetching it using `URLSession` and friends. Once you have the data coming back from Github's server, follow the instructions below to complete the application.
 
 ## Instructions
 
@@ -168,8 +168,10 @@ The idea at a high level is this:
 
 ### The API Client
 
-  1. In the `GithubAPIClient` class, create a **class function** called `getRepositoriesWithCompletion(completion:)`. The job of this function is to fetch all the repositories from the Github API, and pass that array of dictionaries on to its completion closure.
-      - This method should know the URL to hit for the API request, create the `NSURLSessionDataTask`, and kick it off.
+Before beginning, watch this [video](https://youtu.be/AbGul81_X4s) on functions as types. It'll be helpful when writing function signatures with completion blocks. 
+
+  1. In the `GithubAPIClient` class, create a **class function** called `getRepositories(with:)` which takes in one argument named `completion` of type `() -> Void`. The job of this function is to fetch all the repositories from the Github API, and pass that array of dictionaries on to its completion closure.
+      - This method should know the URL to hit for the API request, create the `URLSessionDataTask`, and kick it off.
       - In the completion closure for the data task, the method should deserialize the JSON data from the server.
       - But how does this method get those objects back to the person who called it? It should take *its own* closure as an argument, which accepts the array of dictionaries as a parameter and returns nothing. Check out [this helpful resource](https://www.weheartswift.com/closures/) for an explanation on how to include a closure as a parameter for a function. The closure should return nothing and take one argument, an array of dictionaries.
 
@@ -178,28 +180,28 @@ The idea at a high level is this:
 Even though the raw data from the API is in the form of arrays and dictionaries, let's massage that data into actual classes for ease of use.
 
   1. Add some properties to the `GithubRepository` object. We will be massaging the dictionaries from the API into instances of this class. It should have at least the following properties, which will come directly from the dictionaries in the API response.
-    - `fullName`, an `NSString` of the full name of the repository (e.g., "githubUser/nameOfRepo")
-    - `htmlURL`, an `NSURL` of the page for the repository on Github's website
-    - `repositoryID`, an `NSString` of the ID of the repository.
+    - `fullName`, a `String` of the full name of the repository (e.g., "githubUser/nameOfRepo")
+    - `htmlURL`, a `URL` of the page for the repository on Github's website
+    - `repositoryID`, a `String` of the ID of the repository.
   2. Now we need some way to turn our dictionaries into instances of `GithubRepository`. Let's do this by giving the class a custom initializer, `init(dictionary:)`, that will take in a dictionary from the API and assign the properties based on the values in that dictionary. The relevant dictionary keys are `"full_name"`, `"id"`, and `"html_url"`.
 
 ### The Data Store
 
 The data store's job is to use the methods on the API client, but take it one step further. It should turn the dictionaries from the API client's callback and turn them into actual instances of `GithubRepository`.
 
-  1. Add a function to `ReposDataStore` called `getRepositoriesWithCompletion(completion:)` that calls the function of the same name from `GithubAPIClient`. Do the following within that function's completion closure:
+  1. Add a function to `ReposDataStore` called `getRepositoriesFromAPI(with:)` that calls the getRepositories function from `GithubAPIClient`. Do the following within that function's completion closure:
   	- First, empty the data store's repositories array.
     - The completion closure to the API client function should use the `init(dictionary:)` method on `GithubRepository` to turn the dictionaries you receive into repository objects.
     - Each of those repository objects should be appended to the data store's repositories array.
-    - Now we're in the same boat as in the API client, where we have some result that we got asynchronously and need to inform our caller that we're done. This means the `getRepositoriesWithCompletion(completion:)` needs **its** own completion closure. Just make this one take no arguments and return nothing (so its type will be `() -> ()`).
+    - Now we're in the same boat as in the API client, where we have some result that we got asynchronously and need to inform our caller that we're done. This means the `getRepositoriesFromAPI(with:)` needs **its** own completion closure. Just make this one take no arguments and return nothing (so its type will be `() -> ()`).
 
 ### All together now...
 
   1. In the `viewDidLoad` of your `ReposTableViewController`, retrieve the repos using the method on the `GithubDataStore` and display them in the table view!
-    - Due to the way the UI interacts with threading in iOS, you may see nothing on screen until you try to scroll in the tableview. We'll talk about threading in more detail soon, but in order to interact with the UI from within an `NSURLSession` completion closure, we need to hop back to the main thread. You can do this like so:
+    - Due to the way the UI interacts with threading in iOS, you may see nothing on screen until you try to scroll in the tableview. We'll talk about threading in more detail soon, but in order to interact with the UI from within a `URLSession` completion closure, we need to hop back to the main thread. You can do this like so:
     
     ```swift
-    dispatch_async(dispatch_get_main_queue()) {
+    DispatchQueue.main.async {
         // your code that touches the UI here, like, maybe:
         self.tableView.reloadData()
     }

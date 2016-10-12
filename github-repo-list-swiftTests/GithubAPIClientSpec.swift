@@ -18,16 +18,16 @@ class GithubAPIClientSpec: QuickSpec {
     override func spec() {
         
         
-        guard let path = NSBundle(forClass: self.dynamicType).pathForResource("repositories", ofType: "json") else { print("error getting the path"); return }
+        guard let path = Bundle(for: type(of: self)).path(forResource: "repositories", ofType: "json") else { print("error getting the path"); return }
         
-        guard let data = NSData(contentsOfFile: path) else { print("error getting data"); return }
-        let repositoryArray = try? NSJSONSerialization.JSONObjectWithData(data, options: [])
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else { print("error getting data"); return }
+        let repositoryArray = try? JSONSerialization.jsonObject(with: data, options: [])
 
-        OHHTTPStubs.stubRequestsPassingTest({ (request) -> Bool in
-            return(request.URL?.host == "api.github.com" && request.URL?.path == "/repositories")
+        OHHTTPStubs.stubRequests(passingTest: { (request) -> Bool in
+            return(request.url?.host == "api.github.com" && request.url?.path == "/repositories")
             
         }) { (request) -> OHHTTPStubsResponse in
-            return OHHTTPStubsResponse(fileAtPath: OHPathForFileInBundle("repositories.json", NSBundle(forClass: self.dynamicType))!, statusCode: 200, headers: ["Content-Type" : "application/jason"])
+            return OHHTTPStubsResponse(fileAtPath: OHPathForFileInBundle("repositories.json", Bundle(for: type(of: self)))!, statusCode: 200, headers: ["Content-Type" : "application/jason"])
         }
         
         

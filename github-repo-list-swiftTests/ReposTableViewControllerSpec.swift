@@ -15,16 +15,16 @@ class ReposTableViewControllerSpec: QuickSpec {
     
     override func spec() {
         let tester = KIFUITestActor()
-        let tableView = tester.waitForViewWithAccessibilityLabel("tableView") as! UITableView
-        let indexPath = NSIndexPath(forRow: 1, inSection: 0)
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        let tableView = tester?.waitForView(withAccessibilityLabel: "tableView") as! UITableView
+        let indexPath = IndexPath(row: 1, section: 0)
+        let cell = tableView.cellForRow(at: indexPath)
         
         describe("TableView") {
             it("should have 1 section") {
                 expect(tableView.numberOfSections).to(equal(1))
             }
             it("should have 2 cells") {
-                expect(tableView.numberOfRowsInSection(0)).to(equal(2))
+                expect(tableView.numberOfRows(inSection: 0)).to(equal(2))
             }
         }
         describe("TableView Cells") {

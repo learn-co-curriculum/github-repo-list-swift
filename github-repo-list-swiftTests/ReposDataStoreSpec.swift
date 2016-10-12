@@ -16,12 +16,12 @@ class ReposDataStoreSpec: QuickSpec {
     
     override func spec() {
         
-        OHHTTPStubs.stubRequestsPassingTest({ (request) -> Bool in
+        OHHTTPStubs.stubRequests(passingTest: { (request) -> Bool in
             
-            return(request.URL?.host == "api.github.com" && request.URL?.path == "/repositories")
+            return(request.url?.host == "api.github.com" && request.url?.path == "/repositories")
             
         }) { (request) -> OHHTTPStubsResponse in
-            let response = OHHTTPStubsResponse(fileAtPath: OHPathForFileInBundle("repositories.json", NSBundle(forClass: self.dynamicType))!, statusCode: 200, headers: ["Content-Type": "application/json"])
+            let response = OHHTTPStubsResponse(fileAtPath: OHPathForFileInBundle("repositories.json", Bundle(for: type(of: self)))!, statusCode: 200, headers: ["Content-Type": "application/json"])
             return response
         }
         

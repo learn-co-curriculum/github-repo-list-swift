@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B46B3BC1D8082D500BEEE43 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46B3BB1D8082D500BEEE43 /* Secrets.swift */; };
+		1B6860291DAEDF78008A95DA /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6860281DAEDF78008A95DA /* Secrets.swift */; };
 		2B5C58D31D41860100273743 /* repositories.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C58D21D41860100273743 /* repositories.json */; };
 		2B81D8F31D4142EB00BB3EDD /* GithubAPIClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81D8F01D4142EB00BB3EDD /* GithubAPIClientSpec.swift */; };
 		2B81D8F41D4142EB00BB3EDD /* GithubRepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81D8F11D4142EB00BB3EDD /* GithubRepositorySpec.swift */; };
@@ -47,7 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B46B3BB1D8082D500BEEE43 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		1B6860281DAEDF78008A95DA /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		2B5C58D21D41860100273743 /* repositories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = repositories.json; sourceTree = "<group>"; };
 		2B81D8F01D4142EB00BB3EDD /* GithubAPIClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAPIClientSpec.swift; sourceTree = "<group>"; };
 		2B81D8F11D4142EB00BB3EDD /* GithubRepositorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepositorySpec.swift; sourceTree = "<group>"; };
@@ -146,9 +146,9 @@
 			children = (
 				2B98D85D1D22B6AD00905AE2 /* AppDelegate.swift */,
 				2B98D88D1D22E62200905AE2 /* GithubAPIClient.swift */,
+				1B6860281DAEDF78008A95DA /* Secrets.swift */,
 				2B98D88F1D22E63800905AE2 /* GithubRepository.swift */,
 				2B98D8911D22E63F00905AE2 /* ReposDataStore.swift */,
-				1B46B3BB1D8082D500BEEE43 /* Secrets.swift */,
 				2B98D8931D22E65300905AE2 /* ReposTableViewController.swift */,
 				2B98D8611D22B6AD00905AE2 /* Main.storyboard */,
 				2B98D8641D22B6AD00905AE2 /* Assets.xcassets */,
@@ -202,12 +202,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B98D8821D22B6AD00905AE2 /* Build configuration list for PBXNativeTarget "github-repo-list-swift" */;
 			buildPhases = (
+				615D5699F07642B639FB7A6D /* 📦 Check Pods Manifest.lock */,
 				5666424A37FEFE9764EF218E /* [CP] Check Pods Manifest.lock */,
 				2B98D8561D22B6AD00905AE2 /* Sources */,
 				2B98D8571D22B6AD00905AE2 /* Frameworks */,
 				2B98D8581D22B6AD00905AE2 /* Resources */,
 				5DFF692A857714A5ADBD4709 /* [CP] Embed Pods Frameworks */,
 				1793DA55ECCABB59BA93FB77 /* [CP] Copy Pods Resources */,
+				B0C75085D50861D4591083D4 /* 📦 Embed Pods Frameworks */,
+				34D3F2A3CCFA37C35BF1C349 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,12 +225,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B98D8851D22B6AD00905AE2 /* Build configuration list for PBXNativeTarget "github-repo-list-swiftTests" */;
 			buildPhases = (
+				28AEB8D51616C2D8E753C69A /* 📦 Check Pods Manifest.lock */,
 				E75D2DBDD5631EA94E7200C5 /* [CP] Check Pods Manifest.lock */,
 				2B98D86A1D22B6AD00905AE2 /* Sources */,
 				2B98D86B1D22B6AD00905AE2 /* Frameworks */,
 				2B98D86C1D22B6AD00905AE2 /* Resources */,
 				D7259E08850ACD355D327FAD /* [CP] Embed Pods Frameworks */,
 				4072452566A0E34AFB25D184 /* [CP] Copy Pods Resources */,
+				DA38ABDC64B66D921B830993 /* 📦 Embed Pods Frameworks */,
+				0C9C4A11BB9A0EF704432F47 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,11 +249,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B98D8881D22B6AD00905AE2 /* Build configuration list for PBXNativeTarget "github-repo-list-swiftUITests" */;
 			buildPhases = (
+				FC10FE7D8971E198EDB315EE /* 📦 Check Pods Manifest.lock */,
 				98B7BDE0B2C5D8FB29AC7385 /* [CP] Check Pods Manifest.lock */,
 				2B98D8751D22B6AD00905AE2 /* Sources */,
 				2B98D8761D22B6AD00905AE2 /* Frameworks */,
 				2B98D8771D22B6AD00905AE2 /* Resources */,
 				E068CEA9CA7A19DDED386002 /* [CP] Copy Pods Resources */,
+				31C74834494035E112375A6F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,13 +279,16 @@
 				TargetAttributes = {
 					2B98D8591D22B6AD00905AE2 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					2B98D86D1D22B6AD00905AE2 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 2B98D8591D22B6AD00905AE2;
 					};
 					2B98D8781D22B6AD00905AE2 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 2B98D8591D22B6AD00905AE2;
 					};
 				};
@@ -332,6 +343,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0C9C4A11BB9A0EF704432F47 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-github-repo-list-swiftTests/Pods-github-repo-list-swiftTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1793DA55ECCABB59BA93FB77 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,6 +366,51 @@
 			inputPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-github-repo-list-swift/Pods-github-repo-list-swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		28AEB8D51616C2D8E753C69A /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		31C74834494035E112375A6F /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-github-repo-list-swiftUITests/Pods-github-repo-list-swiftUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		34D3F2A3CCFA37C35BF1C349 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +463,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-github-repo-list-swift/Pods-github-repo-list-swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		615D5699F07642B639FB7A6D /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		98B7BDE0B2C5D8FB29AC7385 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -407,6 +493,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B0C75085D50861D4591083D4 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-github-repo-list-swift/Pods-github-repo-list-swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D7259E08850ACD355D327FAD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +516,21 @@
 			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-github-repo-list-swiftTests/Pods-github-repo-list-swiftTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA38ABDC64B66D921B830993 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +568,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		FC10FE7D8971E198EDB315EE /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -460,7 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B98D8921D22E63F00905AE2 /* ReposDataStore.swift in Sources */,
-				1B46B3BC1D8082D500BEEE43 /* Secrets.swift in Sources */,
+				1B6860291DAEDF78008A95DA /* Secrets.swift in Sources */,
 				2B98D85E1D22B6AD00905AE2 /* AppDelegate.swift in Sources */,
 				2B98D8901D22E63800905AE2 /* GithubRepository.swift in Sources */,
 				2B98D8941D22E65300905AE2 /* ReposTableViewController.swift in Sources */,
@@ -617,6 +748,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.github-repo-list-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -629,6 +761,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.github-repo-list-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -641,6 +774,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.github-repo-list-swiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/github-repo-list-swift.app/github-repo-list-swift";
 			};
 			name = Debug;
@@ -654,6 +788,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.github-repo-list-swiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/github-repo-list-swift.app/github-repo-list-swift";
 			};
 			name = Release;
@@ -666,6 +801,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.github-repo-list-swiftUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "github-repo-list-swift";
 			};
 			name = Debug;
@@ -678,6 +814,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.github-repo-list-swiftUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "github-repo-list-swift";
 			};
 			name = Release;

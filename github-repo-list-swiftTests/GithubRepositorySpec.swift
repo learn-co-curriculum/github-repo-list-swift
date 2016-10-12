@@ -18,7 +18,7 @@ class GithubRepositorySpec: QuickSpec {
             describe("init(dictionary:)") {
                 let repoDictionary = [  "html_url":"https://github.com",
                                         "full_name":"test/test",
-                                        "id":2 ]
+                                        "id":2 ] as [String : Any]
                 
                 let correctID = repoDictionary["id"] as! NSNumber
                 let correctURL = repoDictionary["html_url"] as! String

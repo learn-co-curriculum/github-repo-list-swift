@@ -22,7 +22,7 @@ class GithubAPIClientSpec: QuickSpec {
         
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else { print("error getting data"); return }
         let repositoryArray = try? JSONSerialization.jsonObject(with: data, options: [])
-
+        
         OHHTTPStubs.stubRequests(passingTest: { (request) -> Bool in
             return(request.url?.host == "api.github.com" && request.url?.path == "/repositories")
             
@@ -34,13 +34,13 @@ class GithubAPIClientSpec: QuickSpec {
         describe("getRepositories") {
             it("should get the proper repositories from Github") {
                 waitUntil(action: { (done) in
-                    GithubAPIClient.getRepositoriesWithCompletion({ (repos) in
+                    
+                    GithubAPIClient.getRepositories(with: { (repos) in
                         
                         expect(repos).toNot(beNil())
                         expect(repos.count).to(equal(2))
-                        expect(repos).to(equal(repositoryArray! as? NSArray))
+                        expect(repos).to(be(equal(repositoryArray! as? NSArray)))
                         done()
-                        
                     })
                 })
                 

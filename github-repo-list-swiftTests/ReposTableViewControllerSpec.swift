@@ -11,11 +11,15 @@ import Quick
 import Nimble
 import KIF
 
+@testable import github_repo_list_swift
+
 class ReposTableViewControllerSpec: QuickSpec {
     
     override func spec() {
-        let tester = KIFUITestActor()
-        let tableView = tester?.waitForView(withAccessibilityLabel: "tableView") as! UITableView
+        
+        let tester = KIFUITestActor(inFile: #file, atLine: #line, delegate: self)!
+        
+        let tableView = tester.waitForView(withAccessibilityLabel: "tableView") as! UITableView
         let indexPath = IndexPath(row: 1, section: 0)
         let cell = tableView.cellForRow(at: indexPath)
         

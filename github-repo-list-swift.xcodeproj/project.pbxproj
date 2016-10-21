@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B6860291DAEDF78008A95DA /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6860281DAEDF78008A95DA /* Secrets.swift */; };
+		1B68602B1DAEE056008A95DA /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68602A1DAEE056008A95DA /* Secrets.swift */; };
+		1B68608F1DB142CA008A95DA /* TestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68608E1DB142CA008A95DA /* TestExtension.swift */; };
 		2B5C58D31D41860100273743 /* repositories.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C58D21D41860100273743 /* repositories.json */; };
 		2B81D8F31D4142EB00BB3EDD /* GithubAPIClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81D8F01D4142EB00BB3EDD /* GithubAPIClientSpec.swift */; };
 		2B81D8F41D4142EB00BB3EDD /* GithubRepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81D8F11D4142EB00BB3EDD /* GithubRepositorySpec.swift */; };
@@ -47,7 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B6860281DAEDF78008A95DA /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		1B68602A1DAEE056008A95DA /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		1B68608E1DB142CA008A95DA /* TestExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExtension.swift; sourceTree = "<group>"; };
 		2B5C58D21D41860100273743 /* repositories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = repositories.json; sourceTree = "<group>"; };
 		2B81D8F01D4142EB00BB3EDD /* GithubAPIClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAPIClientSpec.swift; sourceTree = "<group>"; };
 		2B81D8F11D4142EB00BB3EDD /* GithubRepositorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepositorySpec.swift; sourceTree = "<group>"; };
@@ -146,7 +148,7 @@
 			children = (
 				2B98D85D1D22B6AD00905AE2 /* AppDelegate.swift */,
 				2B98D88D1D22E62200905AE2 /* GithubAPIClient.swift */,
-				1B6860281DAEDF78008A95DA /* Secrets.swift */,
+				1B68602A1DAEE056008A95DA /* Secrets.swift */,
 				2B98D88F1D22E63800905AE2 /* GithubRepository.swift */,
 				2B98D8911D22E63F00905AE2 /* ReposDataStore.swift */,
 				2B98D8931D22E65300905AE2 /* ReposTableViewController.swift */,
@@ -168,6 +170,7 @@
 				2B81D8F21D4142EB00BB3EDD /* ReposDataStoreSpec.swift */,
 				2B81D8F61D4142FC00BB3EDD /* ReposTableViewControllerSpec.swift */,
 				2B98D8721D22B6AD00905AE2 /* github_repo_list_swiftTests.swift */,
+				1B68608E1DB142CA008A95DA /* TestExtension.swift */,
 				2B98D8741D22B6AD00905AE2 /* Info.plist */,
 			);
 			path = "github-repo-list-swiftTests";
@@ -591,7 +594,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B98D8921D22E63F00905AE2 /* ReposDataStore.swift in Sources */,
-				1B6860291DAEDF78008A95DA /* Secrets.swift in Sources */,
+				1B68602B1DAEE056008A95DA /* Secrets.swift in Sources */,
 				2B98D85E1D22B6AD00905AE2 /* AppDelegate.swift in Sources */,
 				2B98D8901D22E63800905AE2 /* GithubRepository.swift in Sources */,
 				2B98D8941D22E65300905AE2 /* ReposTableViewController.swift in Sources */,
@@ -604,6 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B98D8731D22B6AD00905AE2 /* github_repo_list_swiftTests.swift in Sources */,
+				1B68608F1DB142CA008A95DA /* TestExtension.swift in Sources */,
 				2B81D8F31D4142EB00BB3EDD /* GithubAPIClientSpec.swift in Sources */,
 				2B81D8F71D4142FC00BB3EDD /* ReposTableViewControllerSpec.swift in Sources */,
 				2B81D8F51D4142EB00BB3EDD /* ReposDataStoreSpec.swift in Sources */,

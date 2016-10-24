@@ -10,15 +10,15 @@ import UIKit
 
 class GithubRepository {
     var fullName: String
-    var htmlURL: NSURL
+    var htmlURL: URL
     var repositoryID: String
     
     init(dictionary: [String:AnyObject]) {
         guard let
             name = dictionary["full_name"] as? String,
-            valueAsString = dictionary["html_url"] as? String,
-            valueAsURL = NSURL(string: valueAsString),
-            repoID = dictionary["id"]?.stringValue
+            let valueAsString = dictionary["html_url"] as? String,
+            let valueAsURL = URL(string: valueAsString),
+            let repoID = dictionary["id"]?.stringValue
             else {fatalError("Error creating instance of GithubRepository")}
         
         fullName = name

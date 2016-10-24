@@ -21,7 +21,7 @@ class ReposDataStoreSpec: QuickSpec {
             return(request.URL?.host == "api.github.com" && request.URL?.path == "/repositories")
             
         }) { (request) -> OHHTTPStubsResponse in
-            let response = OHHTTPStubsResponse(fileAtPath: OHPathForFileInBundle("repositories.json", NSBundle(forClass: self.dynamicType))!, statusCode: 200, headers: ["Content-Type": "application/json"])
+            let response = OHHTTPStubsResponse(fileAtPath: OHPathForFileInBundle("repositories.json", NSBundle(forClass: type(of: self)))!, statusCode: 200, headers: ["Content-Type": "application/json"])
             return response
         }
         

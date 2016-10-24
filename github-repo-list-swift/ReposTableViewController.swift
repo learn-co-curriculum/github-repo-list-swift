@@ -18,7 +18,7 @@ class ReposTableViewController: UITableViewController {
         self.tableView.accessibilityLabel = "tableView"
 
         store.getRepositoriesWithCompletion {
-            NSOperationQueue.mainQueue().addOperationWithBlock({ 
+            OperationQueue.main.addOperation({ 
                 self.tableView.reloadData()
             })
         }
@@ -27,15 +27,15 @@ class ReposTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.store.repositories.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("repoCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "repoCell", for: indexPath)
 
-        let repository:GithubRepository = self.store.repositories[indexPath.row]
+        let repository:GithubRepository = self.store.repositories[(indexPath as NSIndexPath).row]
         cell.textLabel?.text = repository.fullName
 
         return cell

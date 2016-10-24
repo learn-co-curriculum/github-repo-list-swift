@@ -14,7 +14,7 @@ class ReposDataStore {
     
     var repositories:[GithubRepository] = []
     
-    func getRepositoriesWithCompletion(completion: () -> ()) {
+    func getRepositoriesWithCompletion(_ completion: @escaping () -> ()) {
         GithubAPIClient.getRepositoriesWithCompletion { (reposArray) in
             self.repositories.removeAll()
             for dictionary in reposArray {

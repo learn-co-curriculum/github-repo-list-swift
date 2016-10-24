@@ -14,15 +14,13 @@ import OHHTTPStubs
 
 class GithubAPIClientSpec: QuickSpec {
     
-    
     override func spec() {
-        
         
         guard let path = Bundle(for: type(of: self)).path(forResource: "repositories", ofType: "json") else { print("error getting the path"); return }
         
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else { print("error getting data"); return }
         
-        let repositoryArray = try? JSONSerialization.jsonObject(with: data, options: [])
+        let repositoryArray = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String : Any]]
         
         OHHTTPStubs.stubRequests(passingTest: { (request) -> Bool in
             return(request.url?.host == "api.github.com" && request.url?.path == "/repositories")
@@ -36,18 +34,18 @@ class GithubAPIClientSpec: QuickSpec {
             it("should get the proper repositories from Github") {
                 waitUntil(action: { (done) in
                     
-                    GithubAPIClient.getRepositories(with: { (repos) in
+                    GithubAPIClient.getRepositories(with: { repos in
                         
                         expect(repos).toNot(beNil())
                         expect(repos.count).to(equal(2))
-                        expect(repos).to(be(equal(repositoryArray! as? [[String: Any]])))
+                        
+                        let repo1Name = repos[0]["full_name"] as? String
+                        let repo2Name = repositoryArray[0]["full_name"] as? String
+                        expect(repo1Name).to(equal(repo2Name))
                         
                         done()
                     })
                 })
-                
-                
-                
             }
         }
     }

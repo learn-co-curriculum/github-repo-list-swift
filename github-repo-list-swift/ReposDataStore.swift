@@ -18,8 +18,8 @@ class ReposDataStore {
         
         GithubAPIClient.getRepositories { (reposArray) in
             
-            print("######")
-            print(reposArray)
+//            print("######")
+//            print(reposArray)
       
             self.repositories.removeAll()
             

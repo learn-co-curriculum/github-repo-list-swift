@@ -165,6 +165,7 @@ The idea at a high level is this:
 - The API client is a relatively simplistic class whose sole job is to wrap up the nitty gritty of talking to an AI (building the URL, deserializing the JSON, and so on). It usually consists entirely of class methods, each of which executes one API request and calls back its closure with the response.
 - The data store class is similar to the ones we've been building (with a singleton instance). It has methods that call methods on the API client, and uses the results to populate properties on itself.
 - The models are custom classes that are used to encapsulate the data we get from the API. Rather than dealing with the raw dictionaries and arrays from the API's JSON responses, we convert that data into instances of the model classes.
+- We've created the classes for you and have included a singleton in the `RepoDataStore`. Use those to build your API client, data store and models. 
 
 ### The API Client
 

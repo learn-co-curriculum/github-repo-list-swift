@@ -2,7 +2,7 @@
 //  TestExtension.swift
 //  github-repo-list-swift
 //
-//  Created by Flatiron School on 10/14/16.
+//  Created by  susan lovaglio on 10/23/16.
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
 

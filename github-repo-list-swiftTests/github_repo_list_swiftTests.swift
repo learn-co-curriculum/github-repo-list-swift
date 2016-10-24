@@ -2,7 +2,7 @@
 //  github_repo_list_swiftTests.swift
 //  github-repo-list-swiftTests
 //
-//  Created by Haaris Muneer on 6/28/16.
+//  Created by  susan lovaglio on 10/23/16.
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
 

@@ -189,11 +189,13 @@ Even though the raw data from the API is in the form of arrays and dictionaries,
 
 The data store's job is to use the methods on the API client, but take it one step further. It should turn the dictionaries from the API client's callback and turn them into actual instances of `GithubRepository`.
 
-  1. Add a function to `ReposDataStore` called `getRepositoriesFromAPI(with:)` that calls the getRepositories function from `GithubAPIClient`. Do the following within that function's completion closure:
+ 1. Create an array property to hold our `GithubRepository`'s called "repositories".
+  
+ 2. Add a function to `ReposDataStore` called `getRepositoriesFromAPI(_:)` that calls the getRepositories function from `GithubAPIClient`. Do the following within that function's completion closure:
   	- First, empty the data store's repositories array.
     - The completion closure to the API client function should use the `init(dictionary:)` method on `GithubRepository` to turn the dictionaries you receive into repository objects.
     - Each of those repository objects should be appended to the data store's repositories array.
-    - Now we're in the same boat as in the API client, where we have some result that we got asynchronously and need to inform our caller that we're done. This means the `getRepositoriesFromAPI(with:)` needs **its** own completion closure. Just make this one take no arguments and return nothing (so its type will be `() -> ()`).
+    - Now we're in the same boat as in the API client, where we have some result that we got asynchronously and need to inform our caller that we're done. This means the `getRepositoriesFromAPI(_:)` needs **its** own completion closure. Just make this one take no arguments and return nothing (so its type will be `() -> ()`).
 
 ### All together now...
 

@@ -2,7 +2,7 @@
 //  ReposDataStore.swift
 //  github-repo-list-swift
 //
-//  Created by Haaris Muneer on 6/29/16.
+//  Created by  susan lovaglio on 10/23/16.
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
 
@@ -31,18 +31,24 @@ class ReposDataStoreSpec: QuickSpec {
                 let store = ReposDataStore.sharedInstance
                 
                 waitUntil(action: { (done) in
-                    store.getRepositoriesWithCompletion {
+                    
+                    store.getRepositoriesFromAPI {
                         expect(store.repositories.count).to(equal(2))
                         
                         let repo1 = store.repositories[0]
                         expect(repo1.fullName).to(equal("mojombo/grit"))
                         expect(repo1.repositoryID).to(equal("1"))
-                        expect(repo1.htmlURL).to(equal(NSURL(string: "https://github.com/mojombo/grit")))
-                        
+//                        expect(repo1.htmlURL).to(URL(string: "https://github.com/mojombo/grit"))
+    
                         let repo2 = store.repositories[1]
                         expect(repo2.fullName).to(equal("wycats/merb-core"))
                         expect(repo2.repositoryID).to(equal("26"))
-                        expect(repo2.htmlURL).to(equal(NSURL(string: "https://github.com/wycats/merb-core")))
+                        
+//                        expect(repo2.htmlURL).to(be(URL(string: "https://github.com/wycats/merb-core")))
+                        
+//                            equal(URL(string: "https://github.com/wycats/merb-core"))))
+                            
+//                            (URL(string: "https://github.com/wycats/merb-core"))))
                         done()
                     }
                 })

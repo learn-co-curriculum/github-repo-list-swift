@@ -2,7 +2,7 @@
 //  GithubAPIClientSpec.swift
 //  github-repo-list-swift
 //
-//  Created by Haaris Muneer on 6/29/16.
+//  Created by  susan lovaglio on 10/23/16.
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
 
@@ -21,6 +21,7 @@ class GithubAPIClientSpec: QuickSpec {
         guard let path = Bundle(for: type(of: self)).path(forResource: "repositories", ofType: "json") else { print("error getting the path"); return }
         
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else { print("error getting data"); return }
+        
         let repositoryArray = try? JSONSerialization.jsonObject(with: data, options: [])
         
         OHHTTPStubs.stubRequests(passingTest: { (request) -> Bool in
@@ -39,7 +40,8 @@ class GithubAPIClientSpec: QuickSpec {
                         
                         expect(repos).toNot(beNil())
                         expect(repos.count).to(equal(2))
-                        expect(repos).to(be(equal(repositoryArray! as? NSArray)))
+                        expect(repos).to(be(equal(repositoryArray! as? [[String: Any]])))
+                        
                         done()
                     })
                 })

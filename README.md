@@ -182,9 +182,9 @@ Even though the raw data from the API is in the form of arrays and dictionaries,
 
   1. Add some properties to the `GithubRepository` object. We will be massaging the dictionaries from the API into instances of this class. It should have at least the following properties, which will come directly from the dictionaries in the API response.
   
-   - `fullName` should be a stored property of type `String`. It will represent the full name of the repository object (which will be retrieved from the dictionary we get back from the API request).
-  - `htmlURL` should be a stored property of type `URL`. The dictionary we retrieve from the API request has a `String` value for the key `html_url`. This value returned back by this key is of type `String` (hint: It might need to be casted as a `String`). After doing so, you can then pass that `String` value to the initializer of `URL` to create an instance of `URL` that can be assigned as a value to the `htmlURL` stored property.
-  -  `repositoryID` should be a stored property of type `String`. This will represent the ID of the repository (again, this is retrieved from the dictionary).
+      - `fullName` should be a stored property of type `String`. It will represent the full name of the repository object (which will be retrieved from the dictionary we get back from the API request).
+      - `htmlURL` should be a stored property of type `URL`. The dictionary we retrieve from the API request has a `String` value for the key `html_url`. This value returned back by this key is of type `String` (hint: It might need to be casted as a `String`). After doing so, you can then pass that `String` value to the initializer of `URL` to create an instance of `URL` that can be assigned as a value to the `htmlURL` stored property.
+      - `repositoryID` should be a stored property of type `String`. This will represent the ID of the repository (again, this is retrieved from the dictionary).
   
   2. Now we need some way to turn our dictionaries into instances of `GithubRepository`. Let's do this by giving the class a custom initializer, `init(dictionary:)`, that will take in a dictionary from the API and assign the properties based on the values in that dictionary. The relevant dictionary keys are `"full_name"`, `"id"`, and `"html_url"`.
 
